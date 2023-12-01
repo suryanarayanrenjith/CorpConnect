@@ -1,5 +1,7 @@
 # CorpConnect
 
+<img src="/logo.jpg?raw=true" width="100" align="right">
+
 Streamline your business partnerships with our platform, connecting companies and business providers seamlessly. Explore a diverse network of opportunities as a business seeker or showcase your services to a targeted audience as a provider. Elevate your business connections with efficiency and ease on our innovative platform.
 
 ## Table of Contents
