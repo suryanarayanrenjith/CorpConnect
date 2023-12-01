@@ -32,7 +32,4 @@ Youtube [Link](https://youtu.be/yMFQz5ERNtw)
 # Clone the repository
 git clone https://github.com/suryanarayanrenjith/CorpConnect.git
 
-# Change directory
-cd your-repository
-
 Open Index.html in a web browser
