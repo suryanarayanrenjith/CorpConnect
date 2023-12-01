@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CorpConnect</title>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="logo.jpg" onclick="window.location.href='/Index.html'"></div>
+        <nav class="navbar">
+          <ul>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </nav>
+      </header>
+<canvas id="dotCanvas"></canvas>
+<div class="content">
+    <h1>CorpConnect</h1>
+    <div class="text"></div>
+    <br>
+    <button onclick="toggleText()">About Us</button>
+    <div id="hiddenText" class="fade-in hidden">
+      <section class="about-us">
+        <div class="about-us-content">
+          <p>Welcome to CorpConnect, your trusted partner in connecting businesses to innovative solutions. Our mission is to simplify and enhance the way companies collaborate and find the right solution providers for their unique needs.</p>
+          <p>At CorpConnect, we understand the challenges that businesses face when seeking tailored solutions. Our platform bridges the gap, bringing together companies seeking cutting-edge services and the best-in-class solution providers.</p>
+          <p>Join us in shaping the future of business collaborations. Whether you are a company seeking solutions or a solution provider looking to connect with businesses, CorpConnect is here to make the process seamless and rewarding.</p>
+          <p>Experience the difference with CorpConnect - Where Connections Matters.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div id="preloader">
+    <div id="loader"></div>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2023 CorpConnect. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+    const canvas = document.getElementById('dotCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const dots = [];
+
+    function Dot(x, y) {
+        this.x = x;
+        this.y = y;
+        this.radius = 2;
+        this.color = '#ffffff';
+        this.speed = { x: Math.random() * 2 - 1, y: Math.random() * 2 - 1 };
+    }
+
+    Dot.prototype.draw = function () {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+    };
+
+    Dot.prototype.update = function () {
+        this.x += this.speed.x;
+        this.y += this.speed.y;
+
+        if (this.x < 0 || this.x > canvas.width) {
+            this.speed.x *= -1;
+        }
+
+        if (this.y < 0 || this.y > canvas.height) {
+            this.speed.y *= -1;
+        }
+    };
+
+    function connectDots() {
+        for (let i = 0; i < dots.length; i++) {
+            for (let j = i + 1; j < dots.length; j++) {
+                const distance = Math.sqrt((dots[i].x - dots[j].x) ** 2 + (dots[i].y - dots[j].y) ** 2);
+                if (distance < 100) {
+                    ctx.beginPath();
+                    ctx.moveTo(dots[i].x, dots[i].y);
+                    ctx.lineTo(dots[j].x, dots[j].y);
+                    ctx.strokeStyle = 'black';
+                    ctx.lineWidth = 0.2;
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].update();
+            dots[i].draw();
+        }
+
+        connectDots();
+
+        requestAnimationFrame(animate);
+    }
+
+    function createDots() {
+        for (let i = 0; i < 100; i++) {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            dots.push(new Dot(x, y));
+        }
+    }
+
+    createDots();
+    animate();
+</script>
+<script>
+    // Optional: Add a responsive menu toggle for small screens
+const navbar = document.querySelector('.navbar ul');
+const menuToggle = document.createElement('div');
+menuToggle.classList.add('menu-toggle');
+menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+header.appendChild(menuToggle);
+
+menuToggle.addEventListener('click', () => {
+  navbar.classList.toggle('show');
+});
+
+// Close the menu when a link is clicked
+navbar.addEventListener('click', () => {
+  navbar.classList.remove('show');
+});
+</script>
+<script>
+    function toggleText() {
+  const hiddenText = document.getElementById('hiddenText');
+  hiddenText.classList.toggle('show');
+}
+</script>
+<script>
+var typing=new Typed(".text", {
+  strings: ["|", "Where Connections Matters"],
+  typeSpeed: 100,
+  backSpeed: 40,
+  loop: true,
+  showCursor: false,
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
+  var preloader = document.getElementById("preloader");
+  preloader.style.display = "none";
+});
+});
+</script>
+</body>
+</html>
