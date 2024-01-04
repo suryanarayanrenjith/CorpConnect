@@ -23,7 +23,7 @@ Youtube [Link](https://youtu.be/yMFQz5ERNtw)
 
 1. Streamlined Business Matchmaking: Our website facilitates efficient connections between companies seeking services and business providers, ensuring a seamless matchmaking experience.
 
-2. Comprehensive Business Profiles: Create detailed company profiles to showcase your offerings, allowing business seekers to make informed decisions when choosing their ideal partners.
+2. Comprehensive Business Profiles: Create detailed company profiles to showcase our offerings, allowing business seekers to make informed decisions when choosing their ideal partners.
 
 3. Real-time Communication: Foster direct and instant communication between companies and business seekers through our platform, promoting transparent and timely collaboration.
 
